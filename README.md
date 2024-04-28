@@ -36,15 +36,11 @@ First, we have to collect the ROS 2 package for the calibration:
   sudo apt install ros-iron-camera-calibration
   ```
 
-Then, we have to ensure we have a camera driver compatible with our camera. I tend to reply in the following packages for these systems:
-
-usb_cam on Linux using V4L2. It does not work on Mac or Windows.
-opencv_cam on Mac (or Windows) using OpenCV to capture images from a camera or files.
-video_source on Nvidia Jetson devices (supports both cameras and flat files).
 We also need a pattern to use during the calibration. 
 You can generate one easily here: https://calib.io/pages/camera-calibration-pattern-generator. 
 To fit your pattern on an A4/US letter page, I suggest an 8x10 board with 25mm squares. 
 Print it on thick paper to ensure it doesn’t bend during the calibration process.
+Then, record a video similar to the one is stored in resoures folder and run the previous node for your video file.  
  
 To start calibration in one console, start the following command:
   ```
@@ -52,4 +48,3 @@ To start calibration in one console, start the following command:
   ```
 The size option here denotes interior corners (e.g. a standard chessboard is 7x7), so for an 8x10 checkerboard, we go with 7x9.
 
-On the other console, start your camera capture: 
