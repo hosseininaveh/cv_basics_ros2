@@ -13,5 +13,10 @@ to install the cv_basics, the following command should be run in Ubuntu 22.04 af
   source install/setup.bash
   ```
 
+# Test 
+In order to test the package, simply run the following code to read a video file stored in the resource directory and publish the frames in video_frames topic:
   
-  
+  ``` 
+  cd ~/ros2_ws/src/cv_basics_ros2/resource/
+  ros2 run cv_basics frame_publisher ./camera_calib.mp4 ./camera_calibration_params.yaml
+  ```
