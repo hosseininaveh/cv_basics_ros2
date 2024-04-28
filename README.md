@@ -20,3 +20,4 @@ In order to test the package, simply run the following code to read a video file
   cd ~/ros2_ws/src/cv_basics_ros2/resource/
   ros2 run cv_basics frame_publisher ./camera_calib.mp4 ./camera_calibration_params.yaml
   ```
+It is possible to see the publishing frames using different tools including rviz2 or rqt_image_view. 
