@@ -23,6 +23,21 @@ class ImageSubscriber(Node):
         src = np.copy(current_frame)
         ########################################## the opencv function to be run on the frame
         
+        ## Cany Edge detector 
+        
+        max_lowThreshold = 100
+        window_name = 'Edge Map'
+        title_trackbar = 'Min Threshold:'
+        ratio = 3
+        kernel_size = 3
+       
+        src_gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
+        low_threshold = 0
+        img_blur = cv.blur(src_gray, (3,3))
+        detected_edges = cv.Canny(img_blur, low_threshold, low_threshold*ratio, kernel_size)
+        mask = detected_edges != 0
+        frame = src * (mask[:,:,None].astype(src.dtype))
+
         #src[np.all(src == 255, axis=2)] = 0
         #kernel = np.array([[1, 1, 1], [1, -8, 1], [1, 1, 1]], dtype=np.float32)
         #imgLaplacian = cv.filter2D(src, cv.CV_32F, kernel)
@@ -37,13 +52,13 @@ class ImageSubscriber(Node):
         
         ################################### ORB detector
         # Initiate ORB detector
-        orb = cv.ORB_create()
+        #orb = cv.ORB_create()
         # find the keypoints with ORB
-        kp = orb.detect(src,None)
+        #kp = orb.detect(src,None)
         # compute the descriptors with ORB
-        kp, des = orb.compute(src, kp)
+        #kp, des = orb.compute(src, kp)
         # draw only keypoints location,not size and orientation
-        frame = cv.drawKeypoints(src, kp, None, color=(0,255,0), flags=0)
+        #frame = cv.drawKeypoints(src, kp, None, color=(0,255,0), flags=0)
         
         ################################# background substraction
         #backSub = cv.createBackgroundSubtractorMOG2()
