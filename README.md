@@ -10,6 +10,7 @@ to install the cv_basics, the following command should be run in Ubuntu 22.04 af
   git clone https://github.com/hosseininaveh/cv_basics_ros2.git
   cd ..
   rosdep install --from-paths src --ignore-src -y
+  colcon build
   source install/setup.bash
   ```
 
