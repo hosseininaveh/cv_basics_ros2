@@ -27,7 +27,7 @@ class ImagePublisher(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    if(len(sys.argv) is not 2):
+    if(len(sys.argv) != 2):
         print("Incorrect number of arguments\nUsage:\n\tpython3 <path_to_video_file>")
         exit()
 
