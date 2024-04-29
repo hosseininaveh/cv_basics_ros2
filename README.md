@@ -49,3 +49,18 @@ To start calibration in one console, start the following command:
   ```
 The size option here denotes interior corners (e.g. a standard chessboard is 7x7), so for an 8x10 checkerboard, we go with 7x9.
 
+# Working with OpenCV Functions 
+A node is provided to subscrabe to the /video_frames topic publsihed by the frame_publisher node. To run this node following command should be run in a new terminal while the frame_publisher node is running:
+
+  ```
+  ros2 run cv_basics img_subscriber
+  ```
+  
+To see the results (running canny edge detector on the frame), rviz2, rqt_image_view or any other ROS image viewer can be used.
+Moreover, you can edit this node to work with other opencv functions as follows:
+
+  ```
+  sudo gedit ~/ros2_ws/src/cv_basics_ros2/cv_basics/webcam_sub.py
+  ```
+I this file, different openCV functions are implemented that can be uncomment to execute on the video frames after building the modified node by running colcon build command in the ~/ros2_ws director  as explained in # Installation section
+  
